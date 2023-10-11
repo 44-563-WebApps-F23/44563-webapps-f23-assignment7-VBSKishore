@@ -39,7 +39,7 @@
         <input type="text" id="in" placeHolder="Type Some Text"><br>
         <br>
         <button onclick="addFront()">Add Front</button>
-        <button onclick="remove()">Removde</button>
+        <button onclick="remove()">Remove</button>
         
 	
 	
@@ -58,7 +58,7 @@
 	}
     function remove()
     {
-        let mergerItems=document.getElementsByClassName(merger);
+        let mergerItems=document.getElementsByClassName("merger");
         let length=mergerItems.length;
         if(length>0){
             index=Math.floor(length/2);
@@ -66,8 +66,13 @@
             }
     }
     function addFront(){
-        let ele=document.createElement(div);
-        
+        let ele=document.createElement("div");
+        ele.innerHTML=document.getElementById("in").value;
+        ele.style.color="orange";
+        ele.className="merger";
+        let cont=document.getElementById('target')
+        cont.insertBefore(ele,cont.firstChild);
+
     }
 </script>
 </html>	
