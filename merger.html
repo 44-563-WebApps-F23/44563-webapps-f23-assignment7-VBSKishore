@@ -26,20 +26,21 @@
 <body>
     
 		<div class="flex-container" id="target">
-		  <div>Kishore</div>   
-		  <div>Kishore</div>  
-		  <div>Kishore</div>  
+		  <div class="merger">Kishore</div>   
+		  <div class="merger">Kishore</div>  
+		  <div class="merger">Kishore</div>  
 		</div>
 	
 	<p> Press the button to create an new element of type div and then add it to the container.
 		</p>
-		<button onclick="makeNewDiv()">Add one</button>
+		<button onclick="makeNewDiv()">Add end</button>
         <h1>Kishore builds a merger</h1>
         <div>Enter Text Here</div>
         <input type="text" id="in" placeHolder="Type Some Text"><br>
         <br>
         <button onclick="addFront()">Add Front</button>
         <button onclick="remove()">Remove</button>
+        <button onclick="swap()">Swap</button>
         
 	
 	
@@ -48,8 +49,9 @@
 	function makeNewDiv(){
 		/* make the div and its text */
 		let element = document.createElement("div")
-		element.innerHTML = "an item after 3"
+		element.innerHTML = document.getElementById("in").value;
 		element.style.color = "orange"
+    element.className="merger";
 
 		/* add it to the container */
 		let container = document.getElementById('target')
@@ -74,5 +76,22 @@
         cont.insertBefore(ele,cont.firstChild);
 
     }
+    function swap() {
+		let mergerItems = document.getElementsByClassName("merger");
+		let cont = document.getElementById("target");
+		let item1 = Math.floor((Math.random() * mergerItems.length)+1);
+		console.log(item1);
+		let item2 = Math.floor((Math.random() * mergerItems.length)+1);
+		console.log(item2);
+		let data1 = document.getElementsByClassName("merger")[item1-1];
+		let data2 = document.getElementsByClassName("merger")[item2-1];
+
+		if (mergerItems.length > 1) {
+			let tmp = data1.innerHTML;
+			data1.innerHTML = data2.innerHTML;
+			data2.innerHTML = tmp;
+		}
+
+	}
 </script>
 </html>	

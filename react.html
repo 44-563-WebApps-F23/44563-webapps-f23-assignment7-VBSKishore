@@ -40,7 +40,8 @@
     console.log(reactTime);
   }
   function startTime(){
-    for(let k=0;k<9;k++)
+    let ran=Math.floor(Math.random()*(10 - 2 + 1) + 2);
+    for(let k=0;k<ran;k++)
     {
         setTimeout(() =>{
             document.getElementById('counter').innerHTML=k;
